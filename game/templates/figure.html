@@ -1,0 +1,12 @@
+<div style="background-color: black; color: azure; font-size: 20px; width:100%;">
+    {% if not message %}
+    <p style="margin-left:10%; font-size:1.2em; display: inline-block;">Select figure for {{ name }} </p>
+    {% endif %}
+    <form style="display:inline-block; margin-right:20%; " action="{{ url_for('set_figure') }}" method="post">
+        <input style="width:60px;" type="text" name=figure>
+        <input type=submit value=Submit>
+    </form>
+    {% if figures|length < 13 %}
+        <a href="{{ url_for('check') }}"><button style="height:60px; width:130px; border-radius: 80px; background-color: lightpink; font-size:1.1em;" >Quatro!</button></a>
+    {% endif %}
+</div>

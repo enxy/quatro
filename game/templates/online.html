@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}QUARTO !{% endblock %}
+{% block body %}
+{% block content %}
+{% for game in games %}
+ <form style="display:inline-block;" action="{{ url_for('set_slot') }}" method="post">
+            <input type="hidden" name="symbol" value="{{ game }}" />
+            <input style="width:80px;"  type=submit value="Select game">
+    </form>
+{% endfor %}
+{% endblock %}
+{% endblock %}

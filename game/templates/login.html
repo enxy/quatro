@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block content %}
+<div id="login">
+    <form action="{{ url_for('login') }}" method=post>
+        Nickname:
+       <input type="text" name="login" placeholder="Email address">
+        Password:
+       <input type="password" name="password" placeholder="Password">
+       <input type="submit" name="submit" value="Login">
+  </form>
+    {% if error %}
+       {{ error }}
+    {% endif %}
+</div>
+   <div id="user_message">
+       {% with messages = get_flashed_messages() %}
+           <ul class=flashes>
+           {% for message in messages %}
+               <li>{{ message }}</li>
+           {% endfor %}
+           </ul>
+       {% endwith %}
+   </div>
+   <div id="register">
+       <h2>Don't have an account? Register first.</h2>
+       <form action="{{ url_for('login') }}" method="post">
+           Name:<br>
+           <input type="text" name="name"><br>
+           Login:</br>
+           <input type="text" name="login"></br>
+           Password:</br>
+           <input type="password" name="password"></br>
+           Repeat password:</br>
+           <input type="password" name="re_password"></br>
+           <input type="submit" name="submit" value="Register">
+       </form>
+   </div>
+{% endblock %}

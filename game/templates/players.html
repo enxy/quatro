@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Players{% endblock %}
+{% block body %}
+{% block content %}
+<div id="menu">
+    Welcome <strong>{{ user }}</strong>
+    <a style="text-decoration: none; color:lightpink; font-size:1em;" href="{{ url_for('logout') }}">[ logout ]</a>
+</div>
+<div style="margin-left:200%; width:100%; font-size: 1.5em; text-align: center;" id="start">
+   <form action="{{ url_for('start') }}" method="post">
+       <h3 style="color:lightpink;">Second player:</h3>
+       <input type="radio" name="player" value="computer" onclick="document.getElementById('player').style.display = 'none'" checked/>Computer</br>
+       <input type="radio" name="player" value="player2" onclick="document.getElementById('player').style.display = 'block'"/>Other player</br>
+       <input id="player" style="display:none;" type="text" name="nickname" placeholder="Type Nickname"/>
+       <h3 style="color:lightpink;">Who starts first?</h3>
+       <input type="radio" name="turn" value="player1" checked>Me<br>
+       <input type="radio" name="turn" value="player2">Oponent<br>
+       <a href="{{ url_for('start')}}"><button style="width:150px; height: 80px; margin-left:20%; margin-right:10%; margin-top:10%; color: black; font-size:0.7em; "><strong>Start game</strong></a>
+   </form>
+</div>
+{% endblock %}
+{% endblock %}

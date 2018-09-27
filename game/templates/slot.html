@@ -1,0 +1,20 @@
+<div style="background-color: black; color: azure; font-size: 20px; width:100%; display: inline-block;">
+    {% if figure %}
+        <p style="font-size:1.2em; display: inline-block;"> {{ name }}, here is the figure for you to place on the board: <img style="margin-left:30%;" id="f1" src="../static/images/{{figure.get_name()}}.jpg">
+    <form style="display:inline-block;" action="{{ url_for('set_slot') }}" method="post">
+        <select style="width:80px;" name="slot">
+            {% for key in board %}
+                   {% if board2[key] == '0' %}
+                       <option value="{{ key }}" >{{ key }}</option>
+                   {% endif %}
+            {% endfor %}
+       </select>
+            <input type="hidden" name="symbol" value="{{figure.get_name()}}" />
+            <input style="width:80px;"  type=submit value=Submit>
+    </form>
+
+    {% else %}
+        <a href="{{ url_for('players') }}"><button>Play again!</button></a>
+    {% endif %}
+    </p>
+</div>

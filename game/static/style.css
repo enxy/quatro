@@ -1,0 +1,25 @@
+#intro h1{
+    font-size: 20px;
+    color:greenyellow;
+}
+#intro p{
+    font-size: 18px;
+    color:ghostwhite;
+}
+
+#intro{
+    background-color: black;
+    width:100%;
+}
+
+input #player{
+    display:none;
+}
+#board{
+    background-color: black;
+    color: azure;
+    font-size: 20px;
+    display: inline-block;
+}
+
+

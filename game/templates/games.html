@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}QUARTO !{% endblock %}
+{% block body %}
+{% block content %}
+ {% for item in content %}
+        {% if loop.index%4 == 1 %}<br>{% endif %}
+            <img src="../static/images/{{ item[1] }}.jpg">{{ item[0] }}
+    {% endfor %}
+{% endblock %}
+{% endblock %}

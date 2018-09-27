@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}QUARTO !{% endblock %}
+{% block body %}
+{% block content %}
+<div id="menu">
+    {% if user %}
+    Welcome <strong>{{ user }}</strong>
+        <a style="text-decoration: none; color:lightpink; font-size:1em;" href="{{ url_for('logout') }}">[ logout ]</a>
+    {% else %}
+        <a style="text-decoration: none; color:lightpink; font-size:1em;" href="{{ url_for('login') }}">[ Login or register ]</a>
+    {% endif %}
+</div>
+<div id="intro">
+   <h1 style="color: cornflowerblue; margin-left:40%; font-size: 2.5em; text-align: center">Quatro!</h1>
+   <p style="margin-left:40%; text-align: center; font-size:1.5em;">Logic board game for two users.</p>
+   <img style="margin-left:20%; height:300px; witdh:400px; margin-left:35%;"  src="../static/images/figures.jpg" alt="nei mozna wysqitlic">
+    <a href="{{url_for('rules')}}"><button style="width:150px; height: 80px; margin-left:50%; margin-right:10%; font-size:1em; "><strong>Game rules</strong></button></a>
+    <a href="{{url_for('players')}}"><button style="width:150px; height: 80px; font-size:1em;"><strong>Play</strong></button></a>
+</div>
+{% endblock %}
+{% endblock %}

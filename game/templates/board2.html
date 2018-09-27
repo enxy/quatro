@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}QUARTO !{% endblock %}
+{% block body %}
+{% block content %}
+{% if user %}
+    <p>You are logged as <em style="color:lightpink; font-size:1.3em;">{{ user }}</em></p>
+{% endif %}
+<h1 style="color: cornflowerblue; margin-left:45%;">Quatro! game</h1>
+<div style=" display:inline-block; width:125%; margin-left:40%;" id="board">
+{% if symbols %}
+    {% for key in board %}
+            {% if loop.index%4 == 1 %}<br>{% endif %}
+            {% set flag=[] %}
+            {% for symbol in symbols %}
+                {% if board2[key] == symbol  %}
+                     <img src="../static/images/quatro/{{ board2[key] }}.jpg">{{ key }}
+                     {% if flag.append(1) %}{% endif %}
+                {% endif %}
+           {% endfor %}
+           {% if not flag %}
+               <img src="../static/images/{{ board2[key] }}.jpg">{{ key }}
+           {% endif %}
+    {% endfor %}
+{% else %}
+    {% for key in board %}
+        {% if loop.index%4 == 1 %}<br>{% endif %}
+            <img src="../static/images/{{ board2[key] }}.jpg">{{ key }}
+    {% endfor %}
+{% endif %}
+</div>
+<div>
+    {% if message %}
+       {{ message }}
+    {% endif %}<br>
+    {% if symbols %}
+        <p>Quatro, game over!  The winner is {{ winner }}</p>
+        <a href="{{ url_for('players') }}"><button>Play again!</button></a>
+    {% else %}
+        {% include file %}
+    {% endif %}
+</div>
+<div style="background-color: black; color: azure; font-size: 20px; display:block;">
+    <div style="width:60%; margin-left:30%;">
+   {% for figure in figures %}
+       {{ figure.get_name() }}
+      <img id="f{{ i }}" src="../static/images/{{ figure.get_name() }}.jpg">
+   {% endfor %}
+    </div>
+</div>
+{% endblock %}
+{% endblock %}
